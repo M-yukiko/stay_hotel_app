@@ -1,0 +1,52 @@
+<head>
+  <%= stylesheet_link_tag  'reservations', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+	<%= form_for @reservation, method: :post, url: reservations_complete_path do |form| %>
+		<div class="k_frame">
+			<div class="k_main">
+				<div class="k_title">予約内容確認</div>
+					<div class="k_row">
+						<h2>
+							¥ <%= @stayhotel.room_price %>/日
+						</h2>
+					</div>
+					<div class="k_row">
+						<span>開始日</span>
+						<div class="k_f">
+							<%= form.text_field :start_date, readonly: true, class: "f_style2 bgc_1" %>
+						</div>
+					</div>
+					<div class="k_row">
+						<span>終了日</span>
+						<div class="k_f">
+							<%= form.text_field :end_date, readonly: true, class: "f_style2 bgc_1" %>
+						</div>
+					</div>			
+					<div class="k_row bar">
+						<h3>使用日数: <%= @reservation.days %>日</h3>
+					</div>
+					<div class="k_row bar">
+						<h3>人数:<%= @reservation.people_num %>人</h3>
+					</div>		
+					<div class="k_row">
+						<p>合計金額</p>
+						<%= form.text_field :sum_price, readonly: true, class: "f_style2 bgc_1" %>
+					</div>
+					<div class="k_row bar">
+						上記でよろしければ「予約確定」を押してください
+					</div>
+					<div class="k_row cen">
+					<%= form_for @reservation, method: :post, url: reservations_complete_path do |form| %>
+						<%= form.submit '予約確定', class: "btn03 size100" %>
+					<% end %>
+				</div>
+					<div class="k_row cen">
+					<%= form_for @reservation, method: :post, url: reservations_back_path	 do |form| %>
+						<%= form.submit 'ルーム詳細に戻る', class: "btn04 size100" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</body>

@@ -1,0 +1,43 @@
+<head>
+  <title>StayHotelApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag  'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+	<div class="main_frame">
+		<div class="main_top">
+			<div class="search_form">
+			  <%= render 'stayhotels/search_B' %>
+			</div>
+		</div>
+		<div class="main_bottom">
+			<div class="navbox">
+				<a href="/stayhotels?utf8=✓&search=&area=東京">
+					<div class="region_img">
+						<span>東京</span>
+						<%= image_tag 'img_tokyo.jpeg', class:"r_img" %>
+					</div>
+				</a>
+				<a href="/stayhotels?utf8=✓&search=&area=大阪">
+					<div class="region_img">
+						<span>大阪</span>
+						<%= image_tag 'img_osaka.jpeg', class:"r_img" %>
+					</div>
+				</a>
+				<a href="/stayhotels?utf8=✓&search=&area=京都">
+					<div class="region_img">
+						<span>京都</span>
+						<%= image_tag 'img_kyoto.jpeg', class:"r_img" %>
+					</div>
+				</a>
+				<a href="/stayhotels?utf8=✓&search=&area=札幌">
+					<div class="region_img">
+						<span>札幌</span>
+						<%= image_tag 'img_sapporo.jpeg', class:"r_img" %>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>

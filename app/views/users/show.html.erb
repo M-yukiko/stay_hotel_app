@@ -1,0 +1,43 @@
+<head>
+  <%= stylesheet_link_tag  'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+  <body>
+  	<div class="show_frame">
+  		<div class="s_f_left">
+  			<ul>
+  				<li class="link_on">
+				    <%= link_to "アカウント", user_path %>
+  				</li>
+  				<li>
+ 				    <%= link_to "プロフィール", edit_user_path %> 				
+  				</li>			
+  			</ul>
+  		</div>
+  		<div class="s_f_right">
+  			<div class="show_box">
+  				<span>アカウント</span>
+  				<div class="show_row horizontal padding5">
+  					<div class="r_left_2">
+  					メールアドレス
+  					</div>
+  					<div class="r_right">
+  					  <%= @user.email %>
+  					</div>									
+  				</div>
+  				<div class="show_row horizontal padding5">
+  					<div class="r_left_2">
+  					パスワード
+  					</div>
+  					<div class="r_right">
+  					  ********
+  					</div>									
+  				</div>	
+  				<div class="show_row2 horizontal">
+  				  <%= link_to "編集", edit_user_registration_path, class: "btn03 btn_200" %> 		
+  			  </div>
+  			</div>
+  		</div>
+  	</div>
+  </body>
+  

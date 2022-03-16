@@ -1,0 +1,20 @@
+<head>
+    <%= stylesheet_link_tag  'reservations', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<%= form_for @reservation, method: :post, url: reservations_confirm_path do |form| %>
+	<div class="reservation_box">
+		<div class="reser_row">
+		開始日<br>
+		<%= form.date_field :start_date, required: true, class: "f_style2" %>
+		</div>
+		<div class="reser_row">
+		終了日<br>
+		<%= form.date_field :end_date, required: true, class: "f_style2" %>
+		</div>
+		<div class="reser_row">
+		人数<br>
+		<%= form.number_field :people_num, required: true,  in: 1..100, class: "f_style2" %>
+		</div>
+		<%= form.submit '予約する', class: "btn03 size100" %>
+	</div>
+<% end %>
