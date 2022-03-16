@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+	<div class="alert_outer">
+		<h2><%= pluralize(@user.errors.count, "件") %> のエラーが発生したため保存されませんでした。</h2>
+		<ul>
+	 		<% @user.errors.full_messages.each do |message| %>
+	 		<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

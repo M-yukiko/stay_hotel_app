@@ -1,0 +1,171 @@
+.r_sec {
+    display: flex;
+    frex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 1px 0;
+}
+
+.result_title {
+    margin-top: 20px;
+    padding-left: 15px; 
+    font-weight: 700
+}
+
+.r_frame {
+    width: calc(100% / 4);
+    margin-bottom: 10px;
+}
+
+.f_design {
+    margin: 2em 1em;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.room_info {
+  margin:auto;
+}
+
+.r_img, .img_size{
+  width:100%;
+  height:150px;
+  object-fit: cover; 
+  margin-bottom: 10px;
+}
+
+
+.r_title, .r_adress, .r_price {
+	padding: 2px 5px 5px 10px;
+	text-align: left;
+}
+
+.r_title, .f_333 {
+   font-size: 15px; 
+   color: #333;
+}
+
+.r_adress {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.r_price {
+	text-align: right;
+	font-weight: 700;
+}
+
+/*showデザイン*/
+
+body {
+    margin:auto;
+}
+
+@media (max-width: 850px){
+.s_frame {
+    display: block;
+    margin:auto;
+    width:100%;
+}
+}
+@media (max-width: 850px){
+.s_frame2 {
+    padding: 5px;
+	display: block;
+}
+}
+
+@media (max-width: 850px){
+.right_f {
+    display: block;
+	margin: 20px;
+	padding: 20px;
+	width: 300px;
+	border-box:inherit;
+    color: #5d627b;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+}
+
+@media (min-width: 851px){
+.s_frame {
+	display: flex;
+    margin:auto;
+    margin:auto;
+	width:100%;
+}
+}
+@media (min-width: 851px){
+.s_frame2 {
+    margin:auto;
+	display: flex;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+}
+
+@media (min-width: 851px){
+.right_f {
+    width: 250px;
+    display: block;
+	margin: 20px;
+	padding: 10px 20px;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+}
+
+.left_f {
+    display: block;
+	width: 600px;
+    margin: 20px;
+}
+
+.img_size2 {
+    border-box:inherit;
+    width: 600px;
+	height: 400px;
+	margin-bottom: 20px;
+	object-fit: cover; 
+}
+
+.room_info1 {
+	border-box:inherit;
+	display: flex;
+	margin:5px;
+}
+
+.title-adress {
+    margin-left:10px;
+}
+
+.title-adress > h2 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.room_info2 {
+    border-box:inherit;
+    margin: 10px 0px;
+    padding: 10px 20px;
+    border-color:#ccc;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-width: 0.5px;
+	border-bottom-width: 0.5px;
+}
+
+.pa_f > p {
+    font-weight:800;
+    font-size:20px;
+}
+
+.partial {
+    border-box:inherit;
+    width:100%;
+}

@@ -1,0 +1,46 @@
+<head>
+  <%= stylesheet_link_tag  'reservations', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="room_frame">
+    <h1>登録済みルーム一覧</h1>
+    <table>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+        <th>削除</th>
+      </tr>
+      <% @stayhotels.each do |stayhotel| %>
+      <tr>
+        <td>
+          <div class="img_f">
+            <%= attachment_image_tag stayhotel, :room_image, fallback: "no-image.png", class: "img_size3" %>
+          </div>
+        </td>
+        <td>
+          <%= link_to stayhotel_path(stayhotel.id) do %>
+            <%= stayhotel.room_title %>
+          <% end %>
+        </td>
+        <td>
+          <%= stayhotel.room_intro %>
+        </td>
+        <td>
+          ￥<%= stayhotel.room_price %>
+        </td>
+        <td>
+          <%= stayhotel.created_at.strftime("%Y-%m-%d %H:%M") %>
+        </td>
+        <td>
+          <% if stayhotel.user_id == current_user.id %>
+            <%= link_to "削除", stayhotel_path(stayhotel), method: :delete, data: {confirm: "削除しますか？"} %>
+          <% end %>  
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

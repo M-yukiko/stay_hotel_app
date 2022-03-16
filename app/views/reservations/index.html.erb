@@ -1,0 +1,54 @@
+<head>
+  <%= stylesheet_link_tag  'reservations', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="reservation_frame">
+    <h1>予約一覧</h1>
+    <table>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th class="width25">ルーム紹介</th>
+        <th class="width8">合計金額</th>
+        <th class="width8">開始日</th>
+        <th class="width8">終了日</th>
+        <th class="width8">予約確定日時</th>
+        <th class="width5">削除</th>
+      </tr>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td>
+          <div class="img_f">
+          <%= attachment_image_tag reservation.stayhotel, :room_image, fallback: "room01.jpeg", class: "img_size3" %>
+          </div>
+        </td>
+        <td>
+          <%= link_to stayhotel_path(reservation.stayhotel_id) do %>
+            <%= reservation.stayhotel.room_title %>
+          <% end %>
+        </td>
+        <td>
+          <%= reservation.stayhotel.room_intro %>
+        </td>
+        <td>
+          ¥ <%= reservation.sum_price %>
+        </td>
+        <td>
+          <%= reservation.start_date.strftime("%Y年 %m月 %d日") %>
+        </td>
+        <td>
+          <%= reservation.end_date.strftime("%Y年 %m月 %d日") %>
+        </td>
+        <td>
+          <%= reservation.created_at.strftime("%Y年 %m月 %d日 %H時 %M分") %>
+        </td>
+        <td>
+          <% if reservation.user_id == current_user.id %>
+            <%= link_to "削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+          <% end %>      
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

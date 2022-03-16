@@ -1,15 +1,79 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>StayHotelApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+<head>
+  <title>StayHotelApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<header>
+  <div class="h_top">
+    <div class="h_left">
+      <div class="app_title">
+        <%= link_to root_path, class: "h_title" do %>
+          <p style="font-family: cursive;">Pote Share</p>
+        <% end %>	  	  
+      </div>
+      <div class="search">
+        <%= render 'stayhotels/search_A' %>
+      </div>
+    </div>
+    <div class="h_right">
+      <div class="sign_in font_style1">
+        <% if user_signed_in? %>
+          <%= current_user.username %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn01" %>
+        <% end %>
+      </div>
+      <div class="sign_up">
+        <% if user_signed_in? %>
+            <div class="dropdown is-right is-hoverable">
+              <div class="dropdown-trigger">
+                <div class="top_profile_image" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <%= attachment_image_tag current_user, :profile_image, fallback: "no-image.png", class: "profile_img" %>
+                </div>
+              </div>
+              <div class="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <%= link_to "ルーム登録", new_stayhotel_path(current_user), class: "dropdown-item" %>
+                <a href="#" class="dropdown-item">
+                  <%= link_to "予約済みルーム登録", reservations_index_path(current_user), class: "dropdown-item" %>
+                </a>
+                <hr class="dropdown-divider">
+                  <%= link_to "登録済みルーム一覧", users_path(current_user), class: "dropdown-item" %>
+                <hr class="dropdown-divider">
+                  <%= link_to "設定", user_path(current_user), class: "dropdown-item" %>
+                <hr class="dropdown-divider">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </div>
+        <% else %>
+          <%= link_to "登録する", new_user_registration_path, class: "btn02 btn_font" %>          
+        <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="h_bottom">
+    <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+  </div>
+</header>
+<body>
+  <main>
     <%= yield %>
-  </body>
-</html>
+ </main>
+</body>
+<footer>
+  <div class="footer_f">
+    <p>since:2022</p>
+  </div>
+</footer>

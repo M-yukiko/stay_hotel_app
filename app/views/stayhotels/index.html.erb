@@ -1,0 +1,26 @@
+<head>
+<%= stylesheet_link_tag  'stayhotels', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<p class="result_title">検索結果：<%= @count %>件</p>
+<div class="r_sec">
+  <% @stayhotels.each do |stayhotel| %>
+    <div class="r_frame f_design">
+      <div class="room_info">
+        <div class="r_img">
+          <%= link_to stayhotel_path(stayhotel.id) do %>
+          <%= attachment_image_tag stayhotel, :room_image, fallback: "room01.jpeg", class: "img_size" %>
+        </div>
+        <div class="r_title">
+          <%= stayhotel.room_title %>
+          <% end %>
+        </div>
+        <div class="r_adress">
+          <%= stayhotel.room_adress %>
+        </div>
+        <div class="r_price">
+          ¥ <%= stayhotel.room_price %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

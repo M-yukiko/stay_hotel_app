@@ -1,0 +1,57 @@
+<head>
+  <title>StayHotelApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag  'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<%= render "users/errors", user: @user %>
+	<div class="show_frame">
+		<div class="s_f_left">
+			<ul>
+				<li>
+				  <%= link_to "アカウント", user_path %>
+				</li>
+				<li class="link_on">
+				  <%= link_to "プロフィール", edit_user_path %>
+				</li>			
+			</ul>
+		</div>
+		<div class="s_f_right">
+			<div class="show_box">
+				<span>プロフィール</span>
+				<div class="r_cen">
+					<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "edit_profile" %>
+				</div>
+				<%= form_for @user do |f| %>	
+					<div class="show_row">
+						<div class="r_left">
+							<%= f.label :profile_image, "アイコン画像" %>
+						</div>
+						<div class="r_right">
+							<%= f.attachment_field :profile_image  %>
+						</div>									
+					</div>
+					<div class="show_row">
+						<div class="r_left">
+							<%= f.label :username, "ユーザー名" %>
+						</div>
+						<div class="r_right">
+							<%= f.text_field :username %>
+						</div>									
+					</div>
+					<div class="show_row">
+						<div class="r_left">						
+							<%= f.label :profile, "プロフィール" %>
+						</div>
+						<div class="r_right">
+							<%= f.text_area :profile, class: "textarea" %>
+						</div>									
+					</div>
+					<%= f.submit "更新", class: "btn03 is-success" %>
+				<% end %>				
+			</div>
+		</div>
+	</div>
+</body>

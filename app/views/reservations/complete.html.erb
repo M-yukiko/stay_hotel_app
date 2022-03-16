@@ -1,0 +1,42 @@
+<head>
+    <%= stylesheet_link_tag  'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<div class="show_frame">
+	<div class="s_f_right t_center">
+		<p>ご予約ありがとうございました。</p>
+		<div class="show_box t_left">
+			<div class="show_row">
+				<div class="r_left_2">
+					予約した部屋
+				</div>
+				<div class="r_right">
+					<%= @stayhotel.room_title %>
+				</div>
+			</div>
+			<div class="show_row">
+				<div class="r_left_2">
+					開始日
+				</div>
+				<div class="r_right">
+					<%= @reservation.start_date.strftime("%Y年 %m月 %d日") %>
+				</div>
+			</div>
+			<div class="show_row">
+				<div class="r_left_2">
+					終了日
+				</div>
+				<div class="r_right">
+					<%= @reservation.end_date.strftime("%Y年 %m月 %d日") %>
+				</div>									
+			</div>	
+			<div class="show_row">
+				<div class="r_left_2">
+					価格
+				</div>
+				<div class="r_right">
+					<%= @reservation.sum_price %>円
+				</div>									
+			</div>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<section class="devise_form_layout">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="devise_f_position">
+            <div class="f_top">
+                <h2>ログイン</h2>
+                <div class="devise_f_row">
+                    <div class="f_row_left">
+                    </div>
+                    <div class="field">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"  %>
+                    </div>
+                </div>
+                <div class="devise_f_row">
+                    <div class="f_row_left">
+                    </div>
+                    <div class="field">
+                        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"  %>
+                    </div>
+                </div>
+            </div>
+            <div class="f_bottom">
+                <div class="actions">
+                    <%= f.submit "ログイン", class: 'f_action-btn is-success' %>
+                </div>
+                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                  <%= link_to "新しいアカウントを作成", new_registration_path(resource_name) %><br />
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</section>

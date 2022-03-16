@@ -1,0 +1,8 @@
+<div class="f_form">
+  <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+  <%= form_tag(stayhotels_path, method: :get) do %>
+    エリア<br>
+    <%= text_field_tag :area, '', placeholder: "東京", class: "s_form_inner2" %><br>
+    <%= submit_tag '探す', class: "btn03 size100" %>
+  <% end %>
+</div>

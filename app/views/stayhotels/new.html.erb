@@ -1,0 +1,63 @@
+<head>
+  <%= stylesheet_link_tag  'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<%= render "/stayhotels/errors", stayhotel: @stayhotel %>
+	<div class="show_frame">
+		<div class="s_f_left">
+			<ul>
+				<li class="link_on">
+				  <%= link_to "新規登録", new_stayhotel_path %>
+				</li>
+			</ul>
+		</div>
+		<div class="s_f_right">
+			<div class="show_box">
+				<span>ルーム情報登録</span>
+				<%= form_for @stayhotel do |f| %>	
+					<div class="show_row top_bar">
+						<div class="r_left">
+							<%= f.label :room_title, "ルーム名" %>
+						</div>
+						<div class="r_right">
+						  <%= f.text_field :room_title, class: "f_style", placeholder: "ルーム名を入力", required: true %>
+						</div>									
+					</div>
+					<div class="show_row">
+						<div class="r_left">
+						  <%= f.label :room_intro, "ルーム紹介" %>
+						</div>
+						<div class="r_right">
+							<%= f.text_area :room_intro, class: "f_style f_height", placeholder: "ルーム説明を入力", required: true %>
+						</div>									
+				  </div>
+					<div class="show_row">
+						<div class="r_left">						
+							<%= f.label :room_price, "料金" %>
+						</div>
+						<div class="r_right">
+							<%= f.text_field :room_price, class: "f_style", placeholder: "一日あたりの料金を入力", required: true %>
+						</div>									
+					</div>	
+					<div class="show_row">
+						<div class="r_left">						
+							<%= f.label :room_adress, "住所" %>
+						</div>
+						<div class="r_right">
+							<%= f.text_field :room_adress, class: "f_style", placeholder: "住所を入力", required: true %>
+						</div>									
+					</div>
+					<div class="show_row">
+						<div class="r_left">						
+							<%= f.label :room_title, "ルーム画像" %>
+						</div>
+						<div class="r_right">
+							<%= f.attachment_field :room_image, required: true %>
+						</div>									
+					</div>		
+				  <%= f.submit "登録", class: "btn03 btn_120 is-success" %>
+				<% end %>	
+			</div>
+		</div>
+	</div>
+</body>

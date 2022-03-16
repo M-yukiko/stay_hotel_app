@@ -1,0 +1,31 @@
+<head>
+	<%= stylesheet_link_tag  'stayhotels', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<%= render "/reservations/errors", reservation: @reservation %>
+<div class="s_frame">
+	<div class="s_frame2">
+		<div class="left_f">
+			<%= attachment_image_tag @stayhotel, :room_image, class: "img_size2" %>
+			<div class="room_info1">
+				<div class="usericon">
+					<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "profile_img" %>
+				</div>
+				<div class="title-adress">
+					<h2><%= @stayhotel.room_title %></h2>
+					<p><%= @stayhotel.room_adress %></p>
+				</div>
+			</div>
+			<div class="room_info2">
+				<%= simple_format @stayhotel.room_intro %>
+			</div>	
+		</div>
+		<div class="right_f">
+			<div class="pa_f">
+				<p>￥<%= @stayhotel.room_price %> / 日</p>
+				<div class="partial">
+					<%= render 'reservations/new', reservation: @reservation %>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
